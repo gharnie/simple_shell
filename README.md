@@ -1,44 +1,75 @@
-# simple_shell
+simple shell
+Table of Content
+Description
+File Structure
+Requirements
+Installation
+Usage
+Ease of Use
+Bugs
+Author
+License
+Description
+simple_shell is a command line interpreter, or shell, in the tradition of the first Unix shell written by Ken Thompson in 1971. This shell is intentionally minimalistic, yet includes the basic functionality of a traditional Unix-like command line user interface. Standard functions and system calls employed in simple_shell include: access, execve, exit, fork, free, fstat, getline, malloc, perror, signal, stat, wait, write.
 
-# A simple C shell project
+File Structure
+Requirements
+simple_shell is designed to run in the Ubuntu 14.04 LTS linux environment and to be compiled using the GNU compiler collection v. gcc 4.8.4 with flags-Wall, -Werror, -Wextra, and -pedantic.
 
-## Description
+Installation
+Clone this repository: git clone "https://github.com/alexaorrico/simple_shell.git"
+Change directories into the repository: cd simple_shell
+Compile: gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+Run the shell in interactive mode: ./hsh
+Or run the shell in non-interactive mode: example echo "pwd" | ./hsh
+Usage
+The simple_shell is designed to execute commands in a similar manner to sh, however with more limited functionality. The development of this shell is ongoing. The below features will be checked as they become available (see man page for complete information on usage):
 
-This is a simple UNIX command interpreter that replicates functionalities of the simple shell (sh). Additional functions are also included. This program was written entirely in C as a milestone project for Alx-Holberton School.
+Features
+ Uses the path
+ Implements Builtins
+ Handles Command Line Arguments
+ custom strtok function
+ uses exit status
+ shell continues upon Crtl+C (^C)
+ Handles Comments (#)
+ Handles ;
+ custom getline type function
+ handles && and ||
+ aliases
+ variable replacement
+Builtins
+ exit
+ env
+ setenv
+ unsetenv
+ cd
+ help
+ history
+Example of Use
+Run the executable in your terminal after compiling
 
-## Installation
-
-Clone this repository into your working directory. Files should be compiled with GCC and the following flags: -Wall -Wextra -Werror -pedantic -Wno-format.
-
-## Usage
-
-After compilation, the resulting program can run stand-alone, either in interactive or non-interactive mode.
-
-## Interactive Mode
-
-In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely, exiting with either the "exit" command or ctrl-D.
-
-## Non-Interactive Mode
-
-In non-interactive mode, echo your desired command and pipe it into the program like this:
-
-echo "ls" | ./shell
-In non-interactive mode, the program will exit after finishing your desired command(s).
-
-This is the man page which contains all functions and descriptions of all the functions used in this Simple shell project. To access this page, Do:
-
-## AUTHORS
-
-This file contains the details of all the individuals that contributed to this shell project.
-
-## Features
-
-1. DIsplay a prompt and wait for the user to type a command. A command-line always ends with a new line.
-2. The prompt is displayed again each time a command has been executed.
-3. The command lines are simple, no semicolons, no pipes, no redirections, or any other advanced features.
-4. The command lines are made only of one word.No arguement will be passed to the programs.
-5.If an executable is not found the shell prints an error message and displayu the prompt again.
-
-## Credits
+$ ./hsh
+$ # This is our rendition of the shell
+$ ls -al
+total 100
+drwxrwxr-x  3 vagrant vagrant  4096 Jul 19 22:49 .
+drwxr-xr-x 14 vagrant vagrant  4096 Jul 17 22:37 ..
+-rw-rw-r--  1 vagrant vagrant   144 Jul 19 17:16 AUTHORS
+-rw-rw-r--  1 vagrant vagrant  2367 Jul 19 22:33 builtins2.c
+-rw-rw-r--  1 vagrant vagrant  2764 Jul 19 22:14 builtins.c
+-rw-rw-r--  1 vagrant vagrant   710 Jul 16 01:03 environment.c
+-rw-rw-r--  1 vagrant vagrant  1217 Jul 16 03:24 errors.c
+drwxrwxr-x  8 vagrant vagrant  4096 Jul 19 22:34 .git
+-rwxrwxr-x  1 vagrant vagrant 32287 Jul 19 22:34 hsh
+-rw-rw-r--  1 vagrant vagrant  1792 Jul 19 22:12 man_1_simple_shell
+-rw-rw-r--  1 vagrant vagrant   484 Jul 15 20:09 memory_allocation.c
+-rw-rw-r--  1 vagrant vagrant  1273 Jul 18 21:00 new_strtok.c
+-rw-rw-r--  1 vagrant vagrant  3427 Jul 19 22:06 path.c
+-rw-rw-r--  1 vagrant vagrant  2347 Jul 19 22:49 README.md
+-rw-rw-r--  1 vagrant vagrant  1769 Jul 19 22:04 shell.h
+-rw-rw-r--  1 vagrant vagrant  1480 Jul 18 21:15 simple_shell.c
+-rw-rw-r--  1 vagrant vagrant  2111 Jul 16 01:10 strfunc.c
+-rw-rw-r--  1 vagrant vagrant   719 Jul 19 21:46 tokenize.c
 
 All codes written by ABRAHAM SUNDAY and GHARNIE BAMIGBOPA.
